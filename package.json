@@ -1,0 +1,22 @@
+{
+  "name": "start_hack_2021",
+  "version": "1.0.0",
+  "description": "START Hack 2021 - Helsana Case",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjdziuba/Start_Hack_2021.git"
+  },
+  "author": "Krzysztof Dziuba, Andras Szecsenyi, Dennis Utu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kjdziuba/Start_Hack_2021/issues"
+  },
+  "homepage": "https://github.com/kjdziuba/Start_Hack_2021#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
