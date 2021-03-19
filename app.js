@@ -4,7 +4,7 @@ const path = require('path');
 
 const app = express();
 
-const server = app.listen(8000, () => {
+const server = app.listen(80, () => {
     console.log('listening to requests at 8000');
 });
 
