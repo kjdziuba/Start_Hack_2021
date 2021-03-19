@@ -2,7 +2,7 @@
   "name": "start_hack_2021",
   "version": "1.0.0",
   "description": "START Hack 2021 - Helsana Case",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\""
   },
