@@ -27,18 +27,24 @@
    		    <div class="carousel-item active">
    		    	<div class = "row">
    		    		<div class = "col">
-   		    			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 100 100">
-   		    			    <path class="grey" d="M40,90 A40,40 0 1,1 60,90"
+   		    			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="-20 10 100 100">
+   		    			    <path class="grey" d="M0,90 A40,40 0 1,1 60,90"
    		    			          style="fill:none;"/>
-   		    			    <path class="purple" d="M40,90 A40,40 0 1,1 60,90"
+   		    			    <path class="purple" d="M0,90 A40,40 0 1,1 60,90"
    		    			          style="fill:none;"/>
    		    			</svg>  
    		    		</div>
    		    		<div class = "col">
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
+   		    			<div class = "row-1 topgap">
+   		    				<li>asdfadfs</li>
+   		    				<li>asdfadfs</li>
+   		    				<li>asdfadfs</li>
+   		    				<li>asdfadfs</li>
+   		    			</div>
+   		    			<div class = "row">
+   		    				<button type="submit" class="btn btn-danger"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+   		    			</div>
+
    		    		</div>
    		    	</div>
    		    	 		      
@@ -50,20 +56,46 @@
    		    	<!-- This part can be edited  -->
    		    	<div class = "row">
    		    		<div class = "col">
-   		    			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 100 100">
-   		    			    <path class="grey" d="M40,90
+   		    			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="-20 10 100 100">
+   		    			    <path class="grey" d="M0,90
    		    			             A40,40 0 1,1 60,90"
    		    			          style="fill:none;"/>
-   		    			    <path class="green" d="M40,90
+   		    			    <path class="green" d="M0,90
    		    			             A40,40 0 1,1 60,90"
    		    			          style="fill:none;"/>
    		    			</svg>  
    		    		</div>
    		    		<div class = "col">
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
+   		    			<div class="row">
+							<p>Activities</p>
+						</div>
+						<div class="row">
+							<li>asdfadfs</li>
+							<li>asdfadfs</li>
+							<li>asdfadfs</li>
+							<li>asdfadfs</li>
+						</div>
+						<div class="row">
+							<p>Suggestions</p>
+						</div>
+						<div class="row">
+							<div class="row">
+								<div class="col">
+									<p>Hello</p>
+								</div>
+								<div class="col">
+									<p>Hello</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<p>Hello</p>
+								</div>
+								<div class="col">
+									<div class=" suggestionBox"></div>
+								</div>
+							</div>
+						</div>
    		    		</div>
    		    	</div>
    		    	 		      
@@ -74,10 +106,10 @@
    		    <div class="carousel-item">
    		    	<div class = "row">
    		    		<div class = "col">
-   		    			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 100 100">
-   		    			    <path class="grey" d="M40,90 A40,40 0 1,1 60,90"
+   		    			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="-20 10 100 100">
+   		    			    <path class="grey" d="M0,90 A40,40 0 1,1 60,90"
    		    			          style="fill:none;"/>
-   		    			    <path class="blue" d="M40,90 A40,40 0 1,1 60,90"
+   		    			    <path class="blue" d="M0,90 A40,40 0 1,1 60,90"
    		    			          style="fill:none;"/>
    		    			</svg>  
    		    		</div>
@@ -136,26 +168,29 @@
   path.purple {
     stroke: #D33E1D;
     stroke-dasharray: calc(40 * 3.142 * 1.85);
-    stroke-dashoffset: -233;
+    stroke-dashoffset: 150;
     /* adjust last number for variance */
   }
     path.green {
     stroke:  #00B300;
-    stroke-dasharray: calc(30 * 3.142 * 1.85);
-    stroke-dashoffset: -28;
+    stroke-dasharray: calc(40 * 3.142 * 1.85);
+    stroke-dashoffset: 70;
     /* adjust last number for variance */
   }
     path.blue {
     stroke:  #3333ff;
-    stroke-dasharray: calc(30 * 3.142 * 1.85);
-    stroke-dashoffset: -28;
+    stroke-dasharray: calc(40 * 3.142 * 1.85);
+    stroke-dashoffset: 208;
     /* adjust last number for variance */
+  }
+  .topgap {
+  	margin-top: 10%;
   }
 
   .main {
     position: fixed;
     width: 100%;
-    height: 90%;
+    height: 100%;
     top: 5%;
   }
 
@@ -177,6 +212,20 @@
 
     color: #FFFFFF;
   }
+
+  .carousel {
+  	height: 80%;
+  }
+
+  .btn-danger {
+    background: #D33E1D;
+    height: 20%;
+    border-radius: 20px;
+    width: 25%;  
+    font-family: Comfortaa;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
   .bckgrd {
     background: linear-gradient(65.61deg, #DFB26E 2.78%, #D33E1D 84.25%);
 
@@ -188,5 +237,14 @@
     overflow: auto;
 
   }
-  
+  p{
+	font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 100%;
+	color: white;
+  }
+  col{
+	  background-color: white;
+  }
 </style>
