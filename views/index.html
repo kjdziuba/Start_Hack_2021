@@ -66,16 +66,19 @@
    		    			</svg>  
    		    		</div>
    		    		<div class = "col">
-   		    			<div class="row">
+   		    			<div class="row-1 topgap">
 							<p>Activities</p>
 						</div>
-						<div class="row">
-							<li>asdfadfs</li>
-							<li>asdfadfs</li>
-							<li>asdfadfs</li>
-							<li>asdfadfs</li>
+						<div class="row" id="List">
+							<li>Running</li>
+							<li>steps</li>
+							<li>Football</li>
+							<li>Tennis</li>
 						</div>
-						<div class="row">
+						<div>
+							<button type="button" class="btnsport" data-toggle="modal" data-target="#myModalAct"> Add an activity</i></button>
+						</div>
+						<div class="row" id="section2">
 							<p>Suggestions</p>
 						</div>
 						<div class="row">
@@ -136,6 +139,72 @@
    	</div>
    	
    </div>
+
+   <div class="modalAct" id="myModalAct">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+	  
+		<!-- Modal Header -->
+		<div class="modal-header">
+		  <h4 class="modal-title headerTxt">Add an activity</h4>
+		  <button type="button" class="close" data-dismiss="modal">&times;</button>
+		</div>
+		
+		<!-- Modal body -->
+		<div class="modal-body">
+			 <form action="/action_page.php">
+			   <label class = "btn-light" for="img">Select image</label>
+
+			   <input type="file" name="img" id="img" class="inputfile" multiple accept="image/*" onchange="readURL(this);"/>
+			   <div class = "row">
+				   <div class="col">
+					   <img id="blah" src="#" alt="your image" class = "img-thumbnail hidden"/>
+				   </div>
+				   <div class="col hidden deafultTxt" id = "dataFromPic">
+					   Identified:
+					   <li class="deafultTxt">Total calories burned:</li>
+					   <li class="deafultTxt">Duration:</li>
+					   <li class="deafultTxt">Hearth rythm:</li>
+
+				   </div>
+				   <script type="text/javascript"></script>
+			   </div>
+
+			   
+			   <br>
+			   <input class = "btn-danger"  type="submit">
+			 </form>
+		</div>
+		<script type="text/javascript">
+
+			function readURL(input) {
+					if (input.files && input.files[0]) {
+						var reader = new FileReader();
+
+						reader.onload = function (e) {
+							$('#blah')
+								.attr('src', e.target.result)
+								.width(300);
+						};
+
+						reader.readAsDataURL(input.files[0]);
+					}
+					var details = document.getElementById("dataFromPic");
+					var picture = document.getElementById("blah");
+					details.style.display = "block";
+					picture.style.display = "block";
+				}
+
+		</script>
+		
+		<!-- Modal footer -->
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		</div>
+		
+	  </div>
+	</div>
+  </div>
 
    <div class="modal" id="myModal">
        <div class="modal-dialog">
@@ -256,6 +325,7 @@
   	margin-top: 10%;
   }
 
+
   .main {
     position: fixed;
     width: 100%;
@@ -317,7 +387,21 @@
     font-size: 100%;
 	color: white;
   }
-  col{
-	  background-color: white;
+  .btnsport{
+	color: white;
+	background: #00B300;
+    min-height: 40%;
+    border-radius: 20px;
+    width: 25%;  
+    font-family: Comfortaa;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+	border:none;
+  }
+  #List{
+	  min-height: 20%;
+  }
+
+  #section2{
+	  margin-top: 5%;
   }
 </style>
