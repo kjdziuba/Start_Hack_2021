@@ -7,9 +7,17 @@ const session = require('express-session');
 const flash = require('express-flash');
 const bcrypt = require('bcrypt');
 
+const initialize = require('./passport-config');
+
+initialize(
+    passport,
+    email => users.find(user => user.email === email),
+    id => users.find(user => user.id === id)
+)
+
 const app = express();
 
-const server = app.listen(8080, () => {
+const server = app.listen(8081, () => {
     console.log('listening to requests at 8000');
 });
 
@@ -30,27 +38,7 @@ app.use(passport.session());
 //static files
 app.use(express.static('public'));
 
-
-//db set up
-let con = mysql.createConnection({
-    host: "stewarts.database.windows.net",
-    user: "krzysztof.dziuba@student.manchester.ac.uk",
-    password: "lots$redBulls",
-    database: "start_hack_2021",
-    port: 1433,
-    ssl: true
-});
-
-
-con.connect(function (err, result) {
-    if (err) {
-        console.log("Can't connect");
-    }else{
-        console.log("connected");
-    }
-});
-
-
+const users = []
 
 
 app.get('/', (req, res) => {
@@ -61,38 +49,47 @@ app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname + '/views/login.html'));
 });
 
-app.get('/signup', (req, res) => {
+app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname + '/views/sign_up.html'));
 });
 
 
-app.post('/signup',async (req,res) =>{
-    try{
-        var data = req.body;
-        id = Date.now().toString()
-        const hashedPassword = await bcrypt.hash(data.password, 10);
-        var sql = "INSERT INTO users (id, email, password, username) VALUES ('" + id +"','"+data.email+"','"+hashedPassword+"','"+ data.username+"')";
-        console.log(sql)
-        con.query(sql, function (err, result) {
-            if(err){
-                if(err.code="ER_DUP_ENTRY"){
-                    console.log(err);
-                    res.redirect('/signup');
-                }else{console.log(err);
-                    res.send("<script>alert('something went wrong');window.location.replace(window.location.href);</script>"); //TESTING ONLY
-                }
-                
-            }else{
-                res.redirect('/login');
-            }
-        });
-    }catch{
-        res.redirect('/signup');
-    }
-});
 
-// app.post('/signin', checkNotAuthenticated, passport.authenticate('local', {
-//     successRedirect: '/',
-//     failureRedirect: '/signin',
-//     failureFlash: true
-//   }))
+
+app.post('/register', checkNotAuthenticated, async (req, res) => {
+    try {
+      const hashedPassword = await bcrypt.hash(req.body.password, 10)
+      users.push({
+        id: Date.now().toString(),
+        name: req.body.name,
+        email: req.body.email,
+        password: hashedPassword
+      })
+      res.redirect('/login')
+    } catch {
+      res.redirect('/register')
+    }
+  })
+  
+
+  app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  }))
+
+
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return res.redirect('/')
+    }
+    next()
+  }
+
+  function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next()
+    }
+  
+    res.redirect('/login')
+  }
