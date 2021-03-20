@@ -34,7 +34,7 @@ app.use(express.static('public'));
 //db set up
 let con = mysql.createConnection({
     host: "stewarts.database.windows.net",
-    user: "krzysztof",
+    user: "krzysztof.dziuba@student.manchester.ac.uk",
     password: "lots$redBulls",
     database: "start_hack_2021",
     port: 1433,
