@@ -17,7 +17,7 @@
    <div class = "bckgrd">
    	<div class = "main">
    		<h1 class="titlespot">Your main page</h1>
-   		<div id="demo" class="carousel slide" data-ride="carousel">
+   		<div id="demo" class="carousel slide" data-interval="false">
    		  <ul class="carousel-indicators">
    		    <li data-target="#demo" data-slide-to="0" class="active"></li>
    		    <li data-target="#demo" data-slide-to="1"></li>
@@ -42,7 +42,7 @@
    		    				<li class = "infoTxt">asdfadfs</li>
    		    			</div>
    		    			<div class = "row">
-   		    				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+   		    				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Upload new meal</i></button>
    		    			</div>
 
 
@@ -121,14 +121,28 @@
             	<form action="/action_page.php">
             	  <label class = "btn-light" for="img">Select image</label>
 
-            	  <input type="file" name="img" id="img" class="inputfile" accept="image/*" onchange="readURL(this);"/>
+            	  <input type="file" name="img" id="img" class="inputfile" multiple accept="image/*" onchange="readURL(this);"/>
+            	  <div class = "row">
+            	  	<div class="col">
+            	  		<img id="blah" src="#" alt="your image" class = "img-thumbnail hidden"/>
+            	  	</div>
+            	  	<div class="col hidden deafultTxt" id = "dataFromPic">
+            	  		Identified:
+            	  		<li class="deafultTxt">Total Calories:</li>
+            	  		<li class="deafultTxt">Total Fat:</li>
+            	  		<li class="deafultTxt">Total Carb:</li>
+            	  		<li class="deafultTxt">Total Protein:</li>
+            	  	</div>
+            	  	<script type="text/javascript"></script>
+            	  </div>
 
-            	  <img id="blah" src="#" alt="your image" />
+            	  
             	  <br>
-            	  <input class = "btn-danger topgap"type="submit">
+            	  <input class = "btn-danger"  type="submit">
             	</form>
            </div>
            <script type="text/javascript">
+
            	function readURL(input) {
            	        if (input.files && input.files[0]) {
            	            var reader = new FileReader();
@@ -141,7 +155,12 @@
 
            	            reader.readAsDataURL(input.files[0]);
            	        }
+           	        var details = document.getElementById("dataFromPic");
+           	        var picture = document.getElementById("blah");
+           	        details.style.display = "block";
+           	        picture.style.display = "block";
            	    }
+
            </script>
            
            <!-- Modal footer -->
@@ -180,6 +199,9 @@
   path.grey {
     stroke: lightgrey;
   }
+  .hidden {
+  	display: none;
+  }
 
   path.purple {
     stroke: #D33E1D;
@@ -208,6 +230,10 @@
     width: 100%;
     height: 100%;
     top: 5%;
+  }
+
+  .modal-dialog {
+  	max-width: 50%;
   }
 
 
