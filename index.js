@@ -39,26 +39,26 @@ let con = mysql.createConnection({
 });
 
 
-con.connect(function (err, result) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Connected to MySQL!");
-        con.query("CREATE DATABASE mydb", function (err, result) {
-            if (err) { console.log("Database already exists"); }
-            else { console.log("Database created"); }
-        });
+// con.connect(function (err, result) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Connected to MySQL!");
+//         con.query("CREATE DATABASE mydb", function (err, result) {
+//             if (err) { console.log("Database already exists"); }
+//             else { console.log("Database created"); }
+//         });
 
-        sql = "CREATE TABLE users (id VARCHAR(255), email VARCHAR(255), password VARCHAR(255), username VARCHAR(255) PRIMARY KEY(email))";
-        con.query(sql, function (err, result) {
-            if (err) {
-                //console.log(err);
-                console.log("table already exists")
-            }
-            else { console.log("Table created"); }
-        });
-    }
-});
+//         sql = "CREATE TABLE users (id VARCHAR(255), email VARCHAR(255), password VARCHAR(255), username VARCHAR(255) PRIMARY KEY(email))";
+//         con.query(sql, function (err, result) {
+//             if (err) {
+//                 //console.log(err);
+//                 console.log("table already exists")
+//             }
+//             else { console.log("Table created"); }
+//         });
+//     }
+// });
 
 
 
