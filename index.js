@@ -8,6 +8,7 @@ const flash = require('express-flash');
 const bcrypt = require('bcrypt');
 
 const app = express();
+app.set('view-engine', 'ejs');
 
 const server = app.listen(8080, () => {
     console.log('listening to requests at 8000');
@@ -114,6 +115,25 @@ app.post('/login', passport.authenticate('local', {
     failureRedirect: '/login',
     failureFlash: true
 }))
+
+app.get('/getFood', (req, res)=>{
+    res.render('food_example.ejs', { title: "nothing", image: "https://static.turbosquid.com/Preview/001204/841/NH/3D-minion-model_600.jpg" })
+})
+
+const food_func = require("./food-func")
+app.post('/getFood', async (req, res)=>{
+    data = req.body.foodString;
+
+    food = await food_func(data)
+
+    if(food){
+        res.render('food_example.ejs', { title: food.title, image: food.image });
+    }else{
+        console.log("wrong")
+    }
+    
+    
+})
 
 app.get('/getUsers', (req, res) => {
     var sql = `SELECT * FROM users`;
