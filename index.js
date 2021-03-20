@@ -34,34 +34,21 @@ app.use(express.static('public'));
 //db set up
 let con = mysql.createConnection({
     host: "stewarts.database.windows.net",
-    port: 1433,
     user: "krzysztof",
     password: "lots$redBulls",
-    database: "starthack_2021",
-    connectTimeout: 30000
+    database: "start_hack_2021",
+    port: 1433,
+    ssl: true
 });
 
 
-// con.connect(function (err, result) {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log("Connected to MySQL!");
-//         con.query("CREATE DATABASE mydb", function (err, result) {
-//             if (err) { console.log("Database already exists"); }
-//             else { console.log("Database created"); }
-//         });
-
-//         sql = "CREATE TABLE users (id VARCHAR(255), email VARCHAR(255), password VARCHAR(255), username VARCHAR(255) PRIMARY KEY(email))";
-//         con.query(sql, function (err, result) {
-//             if (err) {
-//                 //console.log(err);
-//                 console.log("table already exists")
-//             }
-//             else { console.log("Table created"); }
-//         });
-//     }
-// });
+con.connect(function (err, result) {
+    if (err) {
+        console.log("Can't connect");
+    }else{
+        console.log("connected");
+    }
+});
 
 
 
@@ -84,12 +71,12 @@ app.post('/signup',async (req,res) =>{
         var data = req.body;
         id = Date.now().toString()
         const hashedPassword = await bcrypt.hash(data.password, 10);
-        console.log('here11');
         var sql = "INSERT INTO users (id, email, password, username) VALUES ('" + id +"','"+data.email+"','"+hashedPassword+"','"+ data.username+"')";
-        console.log(sql);
+        console.log(sql)
         con.query(sql, function (err, result) {
             if(err){
                 if(err.code="ER_DUP_ENTRY"){
+                    console.log(err);
                     res.redirect('/signup');
                 }else{console.log(err);
                     res.send("<script>alert('something went wrong');window.location.replace(window.location.href);</script>"); //TESTING ONLY
