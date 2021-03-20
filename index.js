@@ -76,7 +76,7 @@ app.get('/signup', (req, res) => {
 });
 
 
-app.post('/register',async (req,res) =>{
+app.post('/signup',async (req,res) =>{
     try{
         var data = req.body;
         id = Date.now().toString()
