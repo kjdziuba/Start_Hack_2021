@@ -51,21 +51,10 @@
             <div class="col">
               <div class="form-group">
                 <input type="password" class="form-control smallgap" id="pwd" placeholder="enter password" name="password" 
-                pattern = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                required>
               </div>
               <div class ="errorMsg" id = "errorMsg1"></div>
-              <script type="text/javascript">
-                var asd = document.getElementById('pwd');
-                    function acceptPassword() {
-                        if (!asd.checkValidity()) {
-                            document.getElementById('errorMsg1').innerHTML="Please enter at least 8 characters with both a letter and a number.";
-                        } else {
-                            document.getElementById('errorMsg1').innerHTML='';
-                        }
-                    }
-                    asd.onchange = acceptPassword;
-                    asd.onkeyup = acceptPassword;
-              </script>
+
             </div>
           </div>
           <div class="row">
@@ -103,7 +92,7 @@
               </div>
 
               <button type="submit" class="btn btn-danger">Sign up</button>
-              <a href="./login.html">
+              <a href="/login">
                 <button type="button" class="btn btn-light">Cancel</button>
               </a>
               
