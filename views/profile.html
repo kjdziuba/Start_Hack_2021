@@ -1,52 +1,124 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
-        <style>
-            h1{
-                font-family: 'Fredoka One';
-                color: white;
-                font-size: xx-large;
-            }
-            #grad {
-                background-image: linear-gradient(to right, #DFB26E , #D33E1D);
-            }  
-            .profile{
-                border:  3px solid #D33E1D;
-                position: grid;
-                grid-template-rows: 1fr 1fr 1fr 1fr;
-                height: 200px; width: 800px;
-                font-family: 'Comfortaa';
-            }
-            .box{
-                position: grid;
-                grid-template-columns: 3fr 7fr;  
-            }
-        </style>
-        <title>
-            Profile
-        </title>
-    </head>
-    <body id="grad">
-        <h1>Profile</h1>
-        <div class="profile">
-            <div class="box">
-                <p>UserID</p>
-                <div class="infoBox"></div>
-            </div>
-            <div class="box">
-                <p>Username</p>
-                <div class="infoBox"></div>
-            </div>
-            <div class="box">
-                <p>Age</p>
-                <div class="infoBox"></div>
-            </div>
-            <div class="box">
-                <p>Gender</p>
-                <div class="infoBox"></div>
-            </div>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+
+    <!-- Bootstrap CSS using cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+    <title>GetFit</title>
+  </head>
+  <body>
+    <div class="bckgrd">
+        <div class="main">
+            <h1 class="titlespot">Profile</h1>
+                <div class="row">
+                    <div class="col-1">
+                        <p>UserID</p>
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        <p>Username</p>
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        <p>Age</p>
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        <p>Gender</p>
+                    </div>
+                    <div class="col">
+                        
+                    </div>
+                </div>
+
         </div>
-    </body>
+    </div>   
+  </body>
+
 </html>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+  @import url("https://fonts.googleapis.com/css?family=Comfortaa");
+  html, body {
+    height: 100%;
+     margin: 0;
+  }
+
+  .main {
+    position: fixed;
+    width: 50%;
+    top: 21%;
+    left: 23%;
+  }
+
+  .titlespot {
+    position: relative;
+    width: 50%;
+    margin-bottom: 10%;
+    font-family: 'Fredoka One', cursive;;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 500%;
+    line-height: 80%;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #FFFFFF;
+  }
+  .form-control {
+    border-radius: 20px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .btn {
+    background: #D33E1D;
+    border-radius: 20px;
+  }
+
+  .bckgrd {
+    background: linear-gradient(65.61deg, #DFB26E 2.78%, #D33E1D 84.25%);
+
+    height: 100%; 
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  p{
+    font-family: Comfortaa;
+    font-size: 200%;
+    color: #D33E1D;
+  }
+  .col{
+    border-radius: 20px;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+  .col-1{
+      margin-right: 20%;
+  }
+  .row{
+      margin-bottom: 2%;
+  }
+</style>
