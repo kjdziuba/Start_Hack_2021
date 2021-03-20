@@ -323,9 +323,48 @@
 	       	</div>
 
 	       	<div class="card-body deafultTxt" style="height: 80vh;">
-	       		
-	       		  		
+	       		<div class="container">
+	       		  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+	       		  <br>         
+	       		  <table class="table">
+	       		    <thead>
+	       		      <tr>
+	       		        <th>Name</th>
+	       		        <th>Requirement</th>
+	       		        <th>% earned</th>
+	       		      </tr>
+	       		    </thead>
+	       		    <tbody id="myTable">
+	       		      <tr>
+	       		        <td><i class=""></i></td>
+	       		        <td>Doe</td>
+	       		        <td>john@example.com</td>
+	       		      </tr>
+	       		      <tr>
+	       		        <td>Mary</td>
+	       		        <td>Moe</td>
+	       		        <td>mary@example.com</td>
+	       		      </tr>
+	       		      <tr>
+	       		        <td>July</td>
+	       		        <td>Dooley</td>
+	       		        <td>july@example.com</td>
+	       		      </tr>
+	       		    </tbody>
+	       		  </table>
+	       		</div>
 	       	</div>
+
+	       	<script>
+	       	$(document).ready(function(){
+	       	  $("#myInput").on("keyup", function() {
+	       	    var value = $(this).val().toLowerCase();
+	       	    $("#myTable tr").filter(function() {
+	       	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	       	    });
+	       	  });
+	       	});
+	       	</script>
 	       	<div class="card-footer deafultTxt">
 	       		<button class="btn-danger" onclick="sendJumpin();">Cancel</button>
 	       	</div>
