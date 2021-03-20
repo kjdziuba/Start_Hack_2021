@@ -20,7 +20,7 @@
     <div class="bckgrd">
       <div class="main">
         <h1 class="titlespot">Sign up and GetFit</h1>
-        <form action="/signup" method="post">
+        <form action="./index.html" method="post">
           <div class="row">
             <div class="col-1">
               <i class="fa fa-user-circle-o"></i>
@@ -28,7 +28,7 @@
             <div class="col">
               <div class="form-group"> 
 
-                <input type="username" class="form-control biggap" id="username" placeholder="enter email" name="email" required>
+                <input type="email" class="form-control biggap" id="username" placeholder="enter email" name="email" pattern = '(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])' required>
               </div>
             </div>
           </div>
@@ -50,7 +50,8 @@
             </div>
             <div class="col">
               <div class="form-group">
-                <input type="password" class="form-control smallgap" id="pwd" placeholder="enter password" name="password" required>
+                <input type="password" class="form-control smallgap" id="pwd" placeholder="enter password" name="password" pattern = "^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" oninvalid="setCustomValidity('Please enter at least 8 characters with both a letter and a number.')"
+                  onchange="try{setCustomValidity('')}catch(e){}"required>
               </div>
             </div>
           </div>
@@ -60,8 +61,22 @@
             </div>
             <div class="col">
               <div class="form-group">
-                <input type="password" class="form-control smallgap" id="pwd" placeholder="confirm password" name="Cpswd" required>
+                <input type="password" class="form-control smallgap" id="cpwd" placeholder="confirm password" name="Cpwd" required>
               </div>
+              <div class = "errorMsg" id="errorMsg2"></div>
+              <script>
+              var password = document.getElementById('pwd');
+              confirm_password = document.getElementById('cpwd');
+                  function validatePassword() {
+                      if ((confirm_password.value!='')&&(password.value != confirm_password.value)) {
+                          document.getElementById('errorMsg2').innerHTML='Passwords Don\'t Match';
+                      } else {
+                          document.getElementById('errorMsg2').innerHTML='';
+                      }
+                  }
+                  password.onchange = validatePassword;
+                  confirm_password.onkeyup = validatePassword;
+              </script>
             </div>
           </div>
           <div class="row">
@@ -145,6 +160,10 @@
   .form-control::placeholder {
     font-family: Comfortaa;
     color: #D33E1D;
+  }
+  .errorMsg {
+    font-family: Comfortaa;
+    color: white;
   }
 
   .fa {
