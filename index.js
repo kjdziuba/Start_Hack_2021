@@ -10,5 +10,13 @@ const server = app.listen(8080, () => {
 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/views/index.html'));
+    res.sendFile(path.join(__dirname + '/views/main_page.html'));
+});
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname + '/views/login.html'));
+});
+
+app.get('/signup', (req, res) => {
+    res.sendFile(path.join(__dirname + '/views/sign_up.html'));
 });
