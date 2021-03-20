@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://mbostock.github.com/d3/d3.v2.min.js"></script>
 
-    <title>TEST INDEX</title>
+    <title>GetFit</title>
 
 
 </head>
@@ -85,7 +85,7 @@
 
 	   		    		</div>
 	   		    		<div class="carousel-caption">
-	   		        		<h3>Activity page</h3>
+	   		        		<h3 class="deafultTxt">Activity page</h3>
 	   		      		</div>   
 	   		    	</div>
 
@@ -134,7 +134,7 @@
 		   		    	</div>
 		   		    	 		      
 		   		    	<div class="carousel-caption">
-		   		        	<h3>Exercise page</h3>
+		   		        	<h3 class="deafultTxt">Exercise page</h3>
 		   		      	</div> 
 		   		    </div>
 
@@ -142,9 +142,20 @@
 		   		    <div class="carousel-item" id = "thirdCarItem">
 
 		   		    	<div class = "row">
-		   		    		<div style="height: 70vh;" class = "col"></div>
+		   		    		<div class="col-4">
+		   		    			<div style=" position: relative; border-radius: 10px 0px 10px 0px; background: lightblue; width: 20vw; height: 85%;  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25)); margin-left: 45%; z-index: 950;">
+		   		    				
+		   		    			</div>
+		   		    		</div>
+		   		    		<div style="height: 80vh;" class = "col-1">
+		   		    			<div class="lurker">trophy 1<br> <i class="fa fa-star-o" style = "font-size: 310%;"aria-hidden="true"></i></div>
+		   		    			<div class="lurker">trophy 2<br> <i class="fa fa-trophy" style = "font-size: 310%;"aria-hidden="true"></i></div>
+		   		    			<div class="lurker">trophy 3<br> <i class="fa fa-shield" style = "font-size: 310%;"aria-hidden="true"></i></div>
+		   		    			<div class="lurker">trophy 4<br> <i class="fa fa-heart" style = "font-size: 310%;"aria-hidden="true"></i></div>
+		   		    		</div>
+		   		    		<div class="col"></div>
 		   		    		<div class = "col-5">
-		   		    			<button style="height: 90%; width: 100%; text-align: left;" class="btn-danger tp" onclick="callJumpin();">view more achievements</button>
+		   		    			<button style="height: 85%; width: 100%; text-align: left;" class="btn-danger tp" onclick="callJumpin();">view more achievements</button>
 		   		    		</div>
 		     		    </div>
 		     		    <script type="text/javascript">
@@ -152,10 +163,11 @@
 		     		    		var jumpIn = document.getElementById("addAct");
 		     		    		jumpIn.style.display = "block";
 		     		    	}
+
 		     		    </script>
 		   		    	 		      
 		   		    	<div class="carousel-caption">
-		   		        	<h3>Achievements page</h3>
+		   		        	<h3 class="deafultTxt">Achievements page</h3>
 		   		      	</div> 
 		   		    </div>
 
@@ -316,42 +328,91 @@
 	   	</div>
 	</div>
 
-	<div id = "addAct" class="jumpIn">
+	<div id = "addAct" class="jumpIn" name = "jumpIn">
 	    <div class="card">
-	       	<div class="card-header deafultTxt">
-	       		<h3>Unearned achievements</h3>
+	       	<div class="card-header deafultTxt" style="height: 10vh;">
+	       		<input class="form-control" id="myInput" type="text" placeholder="Search..">
 	       	</div>
 
 	       	<div class="card-body deafultTxt" style="height: 80vh;">
-	       		<div class="container">
-	       		  <input class="form-control" id="myInput" type="text" placeholder="Search..">
-	       		  <br>         
-	       		  <table class="table">
-	       		    <thead>
-	       		      <tr>
-	       		        <th>Name</th>
-	       		        <th>Requirement</th>
-	       		        <th>% earned</th>
-	       		      </tr>
-	       		    </thead>
-	       		    <tbody id="myTable">
-	       		      <tr>
-	       		        <td><i class=""></i></td>
-	       		        <td>Doe</td>
-	       		        <td>john@example.com</td>
-	       		      </tr>
-	       		      <tr>
-	       		        <td>Mary</td>
-	       		        <td>Moe</td>
-	       		        <td>mary@example.com</td>
-	       		      </tr>
-	       		      <tr>
-	       		        <td>July</td>
-	       		        <td>Dooley</td>
-	       		        <td>july@example.com</td>
-	       		      </tr>
-	       		    </tbody>
-	       		  </table>
+	       		<table class="table">
+	       		  	  <thead>
+	       		  	    <tr>
+	       		  	      <th>Name</th>
+	       		  	      <th>Requirement</th>
+	       		  	      <th>% earned</th>
+	       		  	    </tr>
+	       		  	  </thead>
+	       		</table>
+	       		<div class="container"  style="height: 90%; overflow: auto;">
+	       		  
+	       		  <br>       
+	       		  	<table class="table table-hover">
+	       		  	  <thead>
+	       		  	  </thead>
+	       		  	  <tbody id="myTable">
+	       		  	    <tr>
+	       		  	      <td><i class="fa fa-star-o" aria-hidden="true"></i>plui</td>
+	       		  	      <td>a fish</td>
+	       		  	      <td>50</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	      <td><i class="fa fa-trophy" aria-hidden="true"></i>mkjhng</td>
+	       		  	      <td>two fish</td>
+	       		  	      <td>43</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	      <td><i class="fa fa-star" aria-hidden="true"></i>ujzhgtr</td>
+	       		  	      <td>three fish</td>
+	       		  	      <td>41</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-star-half" aria-hidden="true"></i>hgbfvd</td>
+	       		  	    	<td>four fish</td>
+	       		  	    	<td>30</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-shield" aria-hidden="true"></i>ztgrfe</td>
+	       		  	    	<td>six fish</td>
+	       		  	    	<td>19</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-star-half-o" aria-hidden="true"></i>gfvdcs</td>
+	       		  	    	<td>ten fish</td>
+	       		  	    	<td>2</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-heart" aria-hidden="true"></i>frews</td>
+	       		  	    	<td>a hundred fish</td>
+	       		  	    	<td> less than 1 </td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-heart" aria-hidden="true"></i>frews</td>
+	       		  	    	<td>a hundred fish</td>
+	       		  	    	<td> less than 1 </td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-heart" aria-hidden="true"></i>frews</td>
+	       		  	    	<td>a hundred fish</td>
+	       		  	    	<td> less than 1 </td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-heart" aria-hidden="true"></i>frews</td>
+	       		  	    	<td>a hundred fish</td>
+	       		  	    	<td> less than 1 </td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-heart" aria-hidden="true"></i>frews</td>
+	       		  	    	<td>a hundred fish</td>
+	       		  	    	<td> less than 1 </td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-heart" aria-hidden="true"></i>frews</td>
+	       		  	    	<td>a hundred fish</td>
+	       		  	    	<td> less than 1 </td>
+	       		  	    </tr>
+	       		  	  </tbody>
+	       		  	</table>
 	       		</div>
 	       	</div>
 
@@ -365,16 +426,21 @@
 	       	  });
 	       	});
 	       	</script>
-	       	<div class="card-footer deafultTxt">
+	       	<div class="card-footer deafultTxt" style="height: 10vh;">
 	       		<button class="btn-danger" onclick="sendJumpin();">Cancel</button>
 	       	</div>
 	    </div>
 	</div>
 	<script type="text/javascript">
+		var jumpIn = document.getElementById("addAct");
 	    function sendJumpin() {
-	    var jumpIn = document.getElementById("addAct");
 	    	jumpIn.style.display = "none";
 	    }
+	    $( document ).on( 'keydown', function ( e ) {
+	        if ( e.keyCode === 27 ) { // ESC
+	        jumpIn.style.display = "none";
+	    }
+	     });
 	</script>
 </body>
 
@@ -521,9 +587,6 @@
   }
     .btn-success{
   	color: white;
-	position: flex;
-	margin-left: 25%;
-	margin-top: 5%;
   	background: #00B300;
       min-height: 40%;
       border-radius: 20px;
@@ -563,9 +626,13 @@
   	height: 5%;
   	margin-bottom: 5%;
   	color: #D33E1D;
+  	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+
   }
   .progress-bar-striped {
   	background-color: #D33E1D;
+  	filter: drop-shadow(4px 0px 4px rgba(0, 0, 0, 0.25));
+
   }
   .jumpIn {
   	position: absolute;
@@ -577,17 +644,21 @@
   	display: none;
   	filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
   }
+  .col-sugest{ justify-content: center; background-color: white; border-radius: 20px; margin: 5%; } 
   
-  .col-sugest{
-	justify-content: center;
-	background-color: white; 
-	border-radius: 20px;
-	margin: 5%;
-  }
-  .txtSugest{
-	  color: black;
-	  text-align: center;
-	  margin-top: 15%;
-  }
+  .txtSugest{ color: black; text-align: center; margin-top: 15%; }
+  .lurker {
+  border-radius: 0px 10px 10px 0px;
+  background: white;
+  width: -39vw;
+  height: 13.5vh; 
+  z-index: 900;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
+  margin-top: 20%;
+  position: relative;
+  text-align: center;
+}
+
+
 
 </style>
