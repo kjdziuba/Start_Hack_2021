@@ -13,6 +13,8 @@ var con = mysql.createConnection({
 
 function initialize(passport) {
 
+  console.log("ello")
+
   passport.use(new LocalStrategy(
     {
       usernameField: 'email'
@@ -56,7 +58,7 @@ function initialize(passport) {
     con.connect((err, client) => {
       var user = {};
       console.log('called deserializeUser - in db connection');
-      var sql = `SELECT * FROM users WHERE id = ${id}`;
+      var sql = `SELECT * FROM users WHERE id = '${id}'`;
       console.log(sql);
       con.query(sql, function(err, result){
         if(err) console.log(err);
