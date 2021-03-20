@@ -135,6 +135,29 @@ app.post('/getFood', async (req, res)=>{
     
 })
 
+//food recognition
+app.get('/guessFood', (req, res)=>{
+    res.render('food_guess.ejs', {kcal: "0", fat:"0", protein: "0", carbs: "0"})
+})
+
+const guess_food = require("./nutrition_by_name")
+app.post('/guessFood', async (req, res)=>{
+    data = req.body.foodString;
+    console.log(data)
+
+    food = await guess_food(data)
+
+    console.log(food)
+
+    if(food){
+        res.render('food_guess.ejs', {kcal: food.kcal, fat:food.fat, protein: food.protein, carbs: food.carbs});
+    }else{
+        console.log("wrong")
+    }
+    
+    
+})
+
 app.get('/getUsers', (req, res) => {
     var sql = `SELECT * FROM users`;
     console.log(sql);
