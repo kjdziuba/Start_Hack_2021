@@ -13,6 +13,9 @@ const server = app.listen(8080, () => {
     console.log('listening to requests at 8000');
 });
 
+//allows direct accessof variables in forms
+app.use(express.urlencoded({ extended: false }));
+
 //makes redirects based on success/fail 
 app.use(flash());
 //sets cookies
@@ -39,26 +42,26 @@ let con = mysql.createConnection({
 });
 
 
-con.connect(function (err, result) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Connected to MySQL!");
-        con.query("CREATE DATABASE mydb", function (err, result) {
-            if (err) { console.log("Database already exists"); }
-            else { console.log("Database created"); }
-        });
+// con.connect(function (err, result) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("Connected to MySQL!");
+//         con.query("CREATE DATABASE mydb", function (err, result) {
+//             if (err) { console.log("Database already exists"); }
+//             else { console.log("Database created"); }
+//         });
 
-        sql = "CREATE TABLE users (id VARCHAR(255), email VARCHAR(255), password VARCHAR(255), username VARCHAR(255) PRIMARY KEY(email))";
-        con.query(sql, function (err, result) {
-            if (err) {
-                //console.log(err);
-                console.log("table already exists")
-            }
-            else { console.log("Table created"); }
-        });
-    }
-});
+//         sql = "CREATE TABLE users (id VARCHAR(255), email VARCHAR(255), password VARCHAR(255), username VARCHAR(255) PRIMARY KEY(email))";
+//         con.query(sql, function (err, result) {
+//             if (err) {
+//                 //console.log(err);
+//                 console.log("table already exists")
+//             }
+//             else { console.log("Table created"); }
+//         });
+//     }
+// });
 
 
 
@@ -80,8 +83,10 @@ app.post('/signup',async (req,res) =>{
     try{
         var data = req.body;
         id = Date.now().toString()
-        const hashedPassword = await bcrypt.hash(data.pwd, 10);
-        var sql = `INSERT INTO users (id, email, password, username) VALUES ('${id}','${email}','${data.password}','${data.username}')`;
+        const hashedPassword = await bcrypt.hash(data.password, 10);
+        console.log('here11');
+        var sql = "INSERT INTO users (id, email, password, username) VALUES ('" + id +"','"+data.email+"','"+hashedPassword+"','"+ data.username+"')";
+        console.log(sql);
         con.query(sql, function (err, result) {
             if(err){
                 if(err.code="ER_DUP_ENTRY"){
