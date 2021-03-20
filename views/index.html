@@ -36,14 +36,15 @@
    		    		</div>
    		    		<div class = "col">
    		    			<div class = "row-1 topgap">
-   		    				<li>asdfadfs</li>
-   		    				<li>asdfadfs</li>
-   		    				<li>asdfadfs</li>
-   		    				<li>asdfadfs</li>
+   		    				<li class = "infoTxt">asdfadfs</li>
+   		    				<li class = "infoTxt">asdfadfs</li>
+   		    				<li class = "infoTxt">asdfadfs</li>
+   		    				<li class = "infoTxt">asdfadfs</li>
    		    			</div>
    		    			<div class = "row">
-   		    				<button type="submit" class="btn btn-danger"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+   		    				<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-refresh" aria-hidden="true"></i></button>
    		    			</div>
+
 
    		    		</div>
    		    	</div>
@@ -66,10 +67,7 @@
    		    			</svg>  
    		    		</div>
    		    		<div class = "col">
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
+   		    			
    		    		</div>
    		    	</div>
    		    	 		      
@@ -88,10 +86,7 @@
    		    			</svg>  
    		    		</div>
    		    		<div class = "col">
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
-   		    			<li>asdfadfs</li>
+   		    			
    		    		</div>
    		    	</div>
    		    	 		      
@@ -110,6 +105,53 @@
    	</div>
    	
    </div>
+
+   <div class="modal" id="myModal">
+       <div class="modal-dialog">
+         <div class="modal-content">
+         
+           <!-- Modal Header -->
+           <div class="modal-header">
+             <h4 class="modal-title headerTxt">Upload your meal</h4>
+             <button type="button" class="close" data-dismiss="modal">&times;</button>
+           </div>
+           
+           <!-- Modal body -->
+           <div class="modal-body">
+            	<form action="/action_page.php">
+            	  <label class = "btn-light" for="img">Select image</label>
+
+            	  <input type="file" name="img" id="img" class="inputfile" accept="image/*" onchange="readURL(this);"/>
+
+            	  <img id="blah" src="#" alt="your image" />
+            	  <br>
+            	  <input class = "btn-danger topgap"type="submit">
+            	</form>
+           </div>
+           <script type="text/javascript">
+           	function readURL(input) {
+           	        if (input.files && input.files[0]) {
+           	            var reader = new FileReader();
+
+           	            reader.onload = function (e) {
+           	                $('#blah')
+           	                    .attr('src', e.target.result)
+           	                    .width(300);
+           	            };
+
+           	            reader.readAsDataURL(input.files[0]);
+           	        }
+           	    }
+           </script>
+           
+           <!-- Modal footer -->
+           <div class="modal-footer">
+             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+           </div>
+           
+         </div>
+       </div>
+     </div>
 </body>
 
 </html>
@@ -187,6 +229,21 @@
     color: #FFFFFF;
   }
 
+  .infoTxt {
+    font-family: Comfortaa;
+    color: white;
+  }
+  .headerTxt {
+  	font-family: Comfortaa;
+    color: #D33E1D;
+  }
+
+  .deafultTxt {
+  	font-family: Comfortaa;
+  }
+
+  }
+
   .carousel {
   	height: 80%;
   }
@@ -199,6 +256,26 @@
     font-family: Comfortaa;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
+
+  .btn-light {
+    border-radius: 20px;
+    width: 50%;  
+    height: 15%;
+    font-family: Comfortaa;
+    text-align: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .inputfile {
+  	width: 0.1px;
+  	height: 0.1px;
+  	opacity: 0;
+  	overflow: hidden;
+  	position: absolute;
+  	z-index: -1;
+  }
+  .inputfile:focus + label,
+
 
   .bckgrd {
     background: linear-gradient(65.61deg, #DFB26E 2.78%, #D33E1D 84.25%);
