@@ -86,6 +86,7 @@
 	   		    		</div>
 	   		    		<div class="carousel-caption">
 	   		        		<h3>Activity page</h3>
+	   		        		<h3 class="deafultTxt">Activity page</h3>
 	   		      		</div>   
 	   		    	</div>
 
@@ -117,16 +118,15 @@
 								<div class="row">
 									<div class="row">
 										<div class="col col-sugest">
-											<p class="txtSugest">Jogging</p>
 										</div>
 										<div class="col col-sugest">
 											<p class="txtSugest">Badminton</p>
 										</div>
-										<div class="col col-sugest">
-											<p class="txtSugest">Football</P>
+										<div class="col">
+											<p>Hello</p>
 										</div>
-										<div class="col col-sugest">
-											<p class="txtSugest">Swimming</p>
+										<div class="col">
+											<div class="suggestionBox"></div>
 										</div>
 									</div>
 								</div>
@@ -134,7 +134,7 @@
 		   		    	</div>
 		   		    	 		      
 		   		    	<div class="carousel-caption">
-		   		        	<h3>Exercise page</h3>
+		   		        	<h3 class="deafultTxt">Exercise page</h3>
 		   		      	</div> 
 		   		    </div>
 
@@ -143,6 +143,8 @@
 
 		   		    	<div class = "row">
 		   		    		<div style="height: 70vh;" class = "col"></div>
+		   		    				
+		   		    			<div class="lurker">trophy 2<br> <i class="fa fa-trophy" style = "font-size: 250%;"aria-hidden="true"></i></div>
 		   		    		<div class = "col-5">
 		   		    			<button style="height: 90%; width: 100%; text-align: left;" class="btn-danger tp" onclick="callJumpin();">view more achievements</button>
 		   		    		</div>
@@ -335,23 +337,69 @@
 	       		      </tr>
 	       		    </thead>
 	       		    <tbody id="myTable">
-	       		      <tr>
-	       		        <td><i class=""></i></td>
-	       		        <td>Doe</td>
-	       		        <td>john@example.com</td>
-	       		      </tr>
-	       		      <tr>
-	       		        <td>Mary</td>
-	       		        <td>Moe</td>
-	       		        <td>mary@example.com</td>
-	       		      </tr>
-	       		      <tr>
-	       		        <td>July</td>
-	       		        <td>Dooley</td>
-	       		        <td>july@example.com</td>
-	       		      </tr>
-	       		    </tbody>
-	       		  </table>
+	       		<table class="table">
+	       		  	  <thead>
+	       		  	    <tr>
+	       		  	      <th>Name</th>
+	       		  	      <th>Requirement</th>
+	       		  	      <th>% earned</th>
+	       		  	    </tr>
+	       		  	  </thead>
+	       		</table>
+	       		<div class="container"  style="height: 90%; overflow: auto;">
+	       		  
+	       		  <br>       
+	       		  	<table class="table table-hover">
+	       		  	  <thead>
+	       		  	  </thead>
+	       		  	  <tbody id="myTable">
+	       		  	    <tr>
+	       		  	      <td><i class="fa fa-star-o" aria-hidden="true"></i>plui</td>
+	       		  	      <td>a fish</td>
+	       		  	      <td>50</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	      <td><i class="fa fa-trophy" aria-hidden="true"></i>mkjhng</td>
+	       		  	      <td>two fish</td>
+	       		  	      <td>43</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	      <td><i class="fa fa-star" aria-hidden="true"></i>ujzhgtr</td>
+	       		  	      <td>three fish</td>
+	       		  	      <td>41</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-star-half" aria-hidden="true"></i>hgbfvd</td>
+	       		  	    	<td>four fish</td>
+	       		  	    	<td>30</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-shield" aria-hidden="true"></i>ztgrfe</td>
+	       		  	    	<td>six fish</td>
+	       		  	    	<td>19</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-star-half-o" aria-hidden="true"></i>gfvdcs</td>
+	       		  	    	<td>ten fish</td>
+	       		  	    	<td>2</td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-heart" aria-hidden="true"></i>frews</td>
+	       		  	    	<td>a hundred fish</td>
+	       		  	    	<td> less than 1 </td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-heart" aria-hidden="true"></i>frews</td>
+	       		  	    	<td>a hundred fish</td>
+	       		  	    	<td> less than 1 </td>
+	       		  	    </tr>
+	       		  	    <tr>
+	       		  	    	<td><i class="fa fa-heart" aria-hidden="true"></i>frews</td>
+	       		  	    	<td>a hundred fish</td>
+	       		  	    	<td> less than 1 </td>
+	       		  	    </tr>
+	       		  	    	<td> less than 1 </td>
+	       		  	    </tr>
 	       		</div>
 	       	</div>
 
@@ -371,10 +419,13 @@
 	    </div>
 	</div>
 	<script type="text/javascript">
+		var jumpIn = document.getElementById("addAct");
 	    function sendJumpin() {
 	    var jumpIn = document.getElementById("addAct");
 	    	jumpIn.style.display = "none";
 	    }
+	    $( document ).on( 'keydown', function ( e ) {
+	        if ( e.keyCode === 27 ) { // ESC
 	</script>
 </body>
 
@@ -563,9 +614,13 @@
   	height: 5%;
   	margin-bottom: 5%;
   	color: #D33E1D;
+  	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+
   }
   .progress-bar-striped {
   	background-color: #D33E1D;
+  	filter: drop-shadow(4px 0px 4px rgba(0, 0, 0, 0.25));
+
   }
   .jumpIn {
   	position: absolute;
@@ -577,14 +632,6 @@
   	display: none;
   	filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
   }
-  
-  .col-sugest{
-	justify-content: center;
-	background-color: white; 
-	border-radius: 20px;
-	margin: 5%;
-  }
-  .txtSugest{
 	  color: black;
 	  text-align: center;
 	  margin-top: 15%;
