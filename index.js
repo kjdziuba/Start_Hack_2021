@@ -70,10 +70,10 @@ con.connect(function (err) {
 
 
 app.get('/', checkAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname + '/views/main_page.html'));
+    res.sendFile(path.join(__dirname + '/views/index.html'));
 });
 
-app.get('/login', (req, res) => {
+app.get('/login', checkNotAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname + '/views/login.html'));
 });
 
@@ -109,7 +109,7 @@ app.post('/register',async (req,res) =>{
 });
 
 
-app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+app.post('/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: true
@@ -120,7 +120,7 @@ app.get('/getUsers', (req, res) => {
     console.log(sql);
     con.query(sql, function (err, result) {
         if (err) {
-            //console.log(err);
+            console.log(err);
             console.log("error")
         }
         else { 
@@ -130,8 +130,15 @@ app.get('/getUsers', (req, res) => {
 })
 
 
+app.use((req, res, next) => {
+    res.sendFile(path.join(__dirname + '/views/404.html'));
+
+});
+
+
 function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
+        console.log("not auth")
         return res.redirect('/')
     }
     next()
@@ -139,6 +146,7 @@ function checkNotAuthenticated(req, res, next) {
 
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
+        console.log("authenticated")
         return next()
     }
 
