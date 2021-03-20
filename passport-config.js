@@ -51,14 +51,14 @@ function initialize(passport) {
 
     }));
   passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.ID);
   });
-  passport.deserializeUser((id, done) => {
+  passport.deserializeUser((ID, done) => {
     console.log('called deserializeUser method');
     con.connect((err, client) => {
       var user = {};
       console.log('called deserializeUser - in db connection');
-      var sql = `SELECT * FROM users WHERE id = '${id}'`;
+      var sql = `SELECT * FROM users WHERE ID = '${ID}'`;
       console.log(sql);
       con.query(sql, function(err, result){
         if(err) console.log(err);

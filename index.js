@@ -16,7 +16,6 @@ const server = app.listen(8081, () => {
 //allows direct accessof variables in forms
 app.use(express.urlencoded({ extended: false }));
 
-//makes redirects based on success/fail 
 app.use(flash());
 //sets cookies
 app.use(session({
@@ -27,6 +26,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//static files
+app.use(express.static('public'));
+
+//passport set up
 const initializePassport = require('./passport-config');
 initializePassport(passport);
 
