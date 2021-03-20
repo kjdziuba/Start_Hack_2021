@@ -85,7 +85,7 @@ app.post('/signup',async (req,res) =>{
         con.query(sql, function (err, result) {
             if(err){
                 if(err.code="ER_DUP_ENTRY"){
-                    res.redirect('/register');
+                    res.redirect('/signup');
                 }else{console.log(err);
                     res.send("<script>alert('something went wrong');window.location.replace(window.location.href);</script>"); //TESTING ONLY
                 }
