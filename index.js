@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 
 const app = express();
 
-const server = app.listen(8080, () => {
+const server = app.listen(800, () => {
     console.log('listening to requests at 8000');
 });
 
@@ -95,7 +95,7 @@ app.post('/signup',async (req,res) =>{
             }
         });
     }catch{
-        res.redirect('/register');
+        res.redirect('/signup');
     }
 });
 
