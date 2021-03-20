@@ -2,12 +2,13 @@ const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 const mysql = require('mysql');
 
-var con = mysql.createConnection({
-  host: "dbhost.cs.man.ac.uk",
-  user: "m05769js",
-  password: "Frosted123",
-  database: "2020_comp10120_y3",
-  connectTimeout: 30000
+let con = mysql.createConnection({
+    host: "stewarts.database.windows.net",
+    port: 1433,
+    user: "krzysztof",
+    password: "lots$redBulls",
+    database: "starthack_2021",
+    connectTimeout: 30000
 });
 
 function initialize(passport) {
