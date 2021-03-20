@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Fredoka One' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+        <style>
+            h1{
+                font-family: 'Fredoka One';
+                color: white;
+                font-size: xx-large;
+            }
+            #grad {
+                background-image: linear-gradient(to right, #DFB26E , #D33E1D);
+            }  
+            .profile{
+                border:  3px solid #D33E1D;
+                position: grid;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+                height: 200px; width: 800px;
+                font-family: 'Comfortaa';
+            }
+            .box{
+                position: grid;
+                grid-template-columns: 3fr 7fr;  
+            }
+        </style>
+        <title>
+            Profile
+        </title>
+    </head>
+    <body id="grad">
+        <h1>Profile</h1>
+        <div class="profile">
+            <div class="box">
+                <p>UserID</p>
+                <div class="infoBox"></div>
+            </div>
+            <div class="box">
+                <p>Username</p>
+                <div class="infoBox"></div>
+            </div>
+            <div class="box">
+                <p>Age</p>
+                <div class="infoBox"></div>
+            </div>
+            <div class="box">
+                <p>Gender</p>
+                <div class="infoBox"></div>
+            </div>
+        </div>
+    </body>
+</html>
