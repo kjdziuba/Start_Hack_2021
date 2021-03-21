@@ -39,6 +39,7 @@
 	   		    					<div class="progress">
 	   		    				  		<div class="progress-bar progress-bar-striped infoTxt" style="width:40%">energy</div>
 	   		    					</div>
+
 	   		    					<div class="progress">
 	   		    				  		<div class="progress-bar progress-bar-striped infoTxt" style="width:45%">protein</div>
 	   		    					</div>
@@ -48,12 +49,7 @@
 	   		    					<div class="progress">
 	   		    				  		<div class="progress-bar progress-bar-striped infoTxt" style="width:30%">carbs</div>
 	   		    					</div>
-	   		    					<div class="progress">
-	   		    				  		<div class="progress-bar progress-bar-striped infoTxt" style="width:20%">salt</div>
-	   		    					</div>
-	   		    					<div class="progress">
-	   		    				  		<div class="progress-bar progress-bar-striped infoTxt" style="width:55%">fiber</div>
-	   		    					</div>
+	   		    					
 	   		    				
 	   		    				</div>
 
@@ -99,7 +95,7 @@
 		   		    			</svg>  
 		   		    			
 		   		    		</div>
-		   		    		<div class = "col">
+		   		    		<div class = "col" style="height: 80vh;">
 		   		    			<div class="row-1 topgap">
 									<p class="p">Activities</p>
 									<li class="deafultTxt">Running</li>
@@ -144,10 +140,19 @@
 
 		   		    	<div class = "row">
 		   		    		<div class="col-4">
-		   		    			<div style=" position: relative; border-radius: 10px 0px 10px 0px; background: lightblue; width: 20vw; height: 85%;  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25)); margin-left: 45%; z-index: 950;">
-		   		    				<img src="icons/gold.png"  style="height: 10vw; margin-top: 5%; margin-left: 5%;">
-		   		    				<img src="icons/gold.png"  style="height: 10vw; float: right; margin-right: 5%;">
-		   		    				<img src="icons/gold.png"  style="height: 10vw; margin-bottom: 10%; margin-left: 5%;">
+		   		    			<div  style=" position: relative; border-radius: 10px 0px 10px 0px; background: lightblue; width: 20vw; height: 85%;  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25)); margin-left: 45%; z-index: 950;">
+		   		    				<div class = "imgContainer" style="position: relative; top:3%; left: 5%;">
+		   		    					<div class = "deafultTxt centered">#234<br> Your rank in<br> contest 1</div>
+		   		    				</div><br>
+		   		    				<div class = "imgContainer" style="position: relative; left: 45%; margin-right: 5%;">
+		   		    					<div class="deafultTxt centered">#768<br> Your rank in<br> contest 2</div>
+		   		    				</div><br>
+		   		    				<div class = "imgContainer" style="position: relative; top: -5%; margin-left: 5%;">
+		   		    					<div class="deafultTxt centered">#519<br> Your rank in<br> contest 3</div>
+		   		    				</div>
+
+		   		    				
+		   		    				
 		   		    				
 		   		    			</div>
 		   		    		</div>
@@ -157,8 +162,12 @@
 		   		    			<div class="lurker deafultTxt">trophy 3<br> <i class="fa fa-shield" style = "font-size: 310%;"aria-hidden="true"></i></div>
 		   		    			<div class="lurker deafultTxt">trophy 4<br> <i class="fa fa-heart" style = "font-size: 310%;"aria-hidden="true"></i></div>
 		   		    		</div>
-		   		    		<div class="col"></div>
-		   		    		<div class = "col-5">
+		   		    		<div class="col-2">
+		   		    			<div class = "deafultTxt" style="position: relative; height: 0.2vh; background: black; width: 60%; z-index: 951; filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25)); top: 10%;  left:  18%;">Personal Goal</div>
+		   		    			<img src="./icons/pschg.png" style="position: relative; width: 14vw; z-index: 1000; top: 50%;">
+		   		    			<div class = "deafultTxt"  style="position: relative; height: 30vh; background: gold; width: 50%; z-index: 950;filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25)); text-align: center; left:  23%;"> 76%</div>
+		   		    		</div>
+		   		    		<div class = "col">
 		   		    			<button style="height: 85%; width: 100%; text-align: left;" class="btn-danger tp" onclick="callJumpin();">view more achievements</button>
 		   		    		</div>
 		     		    </div>
@@ -200,7 +209,7 @@
 	           
 	        	<!-- Modal body -->
 	           	<div class="modal-body">
-	            	<form action="/action_page.php">
+	            	<form>
 	            	  	<!-- <label class = "btn-light" for="img">Select image</label>
 
 
@@ -556,6 +565,13 @@
   	font-family: Comfortaa;
   	font-size: 2vw;
   }
+  .centered {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 26%;
+    transform: translate(-50%, -50%);
+  }
   .form-control {
     border-radius: 20px;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -623,6 +639,12 @@
     overflow: auto;
 
   }
+  .imgContainer {
+  	height: 10vw;
+  	background-image: url("icons/gold.png");
+  	background-repeat: no-repeat;
+  	background-size: 10vw;
+  }
   .p {
 	font-family: 'Comfortaa';
 	font-size: 1vw;
@@ -639,8 +661,9 @@
 	  margin-top: 5%;
   }
   .progress {
-  	height: 5%;
-  	margin-bottom: 5%;
+  	height: 9%;
+  	margin-bottom: 9%;
+  	border-radius: 0px;
   	color: #D33E1D;
   	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -649,6 +672,12 @@
   	background-color: #D33E1D;
   	filter: drop-shadow(4px 0px 4px rgba(0, 0, 0, 0.25));
 
+  }
+  .progressVert{
+  		position: absolute;left:50.5%;top:40%;width: 2.5%;height:50%;opacity: 0.8; filter: alpha(opacity=80);
+  }
+  .progress-barVert{
+  		position:absolute;top:30%; width: 100%;height: 70%;
   }
   .jumpIn {
   	position: absolute;
@@ -660,9 +689,10 @@
   	display: none;
   	filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
   }
-  .col-sugest{ justify-content: center; background-color: white; border-radius: 20px; margin: 5%; } 
+  .col-sugest{text-align: center; background-color: white; border-radius: 20px; margin: 5%; height: 5vh; width: 5vw; } 
   
-  .txtSugest{ color: black; text-align: center; margin-top: 15%; }
+  .txtSugest{ color: black; text-align: center; margin-top: 1vw; font-family: 'Comfortaa';
+	font-size: 1vw;}
   .lurker {
   border-radius: 0px 10px 10px 0px;
   background: white;
