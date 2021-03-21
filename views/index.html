@@ -39,6 +39,7 @@
 	   		    					<div class="progress">
 	   		    				  		<div class="progress-bar progress-bar-striped infoTxt" style="width:40%">energy</div>
 	   		    					</div>
+
 	   		    					<div class="progress">
 	   		    				  		<div class="progress-bar progress-bar-striped infoTxt" style="width:45%">protein</div>
 	   		    					</div>
@@ -48,12 +49,7 @@
 	   		    					<div class="progress">
 	   		    				  		<div class="progress-bar progress-bar-striped infoTxt" style="width:30%">carbs</div>
 	   		    					</div>
-	   		    					<div class="progress">
-	   		    				  		<div class="progress-bar progress-bar-striped infoTxt" style="width:20%">salt</div>
-	   		    					</div>
-	   		    					<div class="progress">
-	   		    				  		<div class="progress-bar progress-bar-striped infoTxt" style="width:55%">fiber</div>
-	   		    					</div>
+	   		    					
 	   		    				
 	   		    				</div>
 
@@ -99,7 +95,7 @@
 		   		    			</svg>  
 		   		    			
 		   		    		</div>
-		   		    		<div class = "col">
+		   		    		<div class = "col" style="height: 80vh;">
 		   		    			<div class="row-1 topgap">
 									<p class="p">Activities</p>
 									<li class="deafultTxt">Running</li>
@@ -144,10 +140,19 @@
 
 		   		    	<div class = "row">
 		   		    		<div class="col-4">
-		   		    			<div style=" position: relative; border-radius: 10px 0px 10px 0px; background: lightblue; width: 20vw; height: 85%;  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25)); margin-left: 45%; z-index: 950;">
-		   		    				<img src="icons/gold.png"  style="height: 10vw; margin-top: 5%; margin-left: 5%;">
-		   		    				<img src="icons/gold.png"  style="height: 10vw; float: right; margin-right: 5%;">
-		   		    				<img src="icons/gold.png"  style="height: 10vw; margin-bottom: 10%; margin-left: 5%;">
+		   		    			<div  style=" position: relative; border-radius: 10px 0px 10px 0px; background: lightblue; width: 20vw; height: 85%;  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25)); margin-left: 45%; z-index: 950;">
+		   		    				<div class = "imgContainer" style="position: relative; top:3%; left: 5%;">
+		   		    					<div class = "deafultTxt centered">#234<br> Your rank in<br> contest 1</div>
+		   		    				</div><br>
+		   		    				<div class = "imgContainer" style="position: relative; left: 45%; margin-right: 5%;">
+		   		    					<div class="deafultTxt centered">#768<br> Your rank in<br> contest 2</div>
+		   		    				</div><br>
+		   		    				<div class = "imgContainer" style="position: relative; top: -5%; margin-left: 5%;">
+		   		    					<div class="deafultTxt centered">#519<br> Your rank in<br> contest 3</div>
+		   		    				</div>
+
+		   		    				
+		   		    				
 		   		    				
 		   		    			</div>
 		   		    		</div>
@@ -157,7 +162,9 @@
 		   		    			<div class="lurker deafultTxt">trophy 3<br> <i class="fa fa-shield" style = "font-size: 310%;"aria-hidden="true"></i></div>
 		   		    			<div class="lurker deafultTxt">trophy 4<br> <i class="fa fa-heart" style = "font-size: 310%;"aria-hidden="true"></i></div>
 		   		    		</div>
-		   		    		<div class="col"></div>
+		   		    		<div class="col">
+		   		    			<img src="./icons/pschg.png" style="position: relative; width: 14vw; top: 50%;">
+		   		    		</div>
 		   		    		<div class = "col-5">
 		   		    			<button style="height: 85%; width: 100%; text-align: left;" class="btn-danger tp" onclick="callJumpin();">view more achievements</button>
 		   		    		</div>
@@ -200,7 +207,7 @@
 	           
 	        	<!-- Modal body -->
 	           	<div class="modal-body">
-	            	<form action="/action_page.php">
+	            	<form>
 	            	  	<!-- <label class = "btn-light" for="img">Select image</label>
 
 
@@ -556,6 +563,13 @@
   	font-family: Comfortaa;
   	font-size: 2vw;
   }
+  .centered {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 26%;
+    transform: translate(-50%, -50%);
+  }
   .form-control {
     border-radius: 20px;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -623,6 +637,12 @@
     overflow: auto;
 
   }
+  .imgContainer {
+  	height: 10vw;
+  	background-image: url("icons/gold.png");
+  	background-repeat: no-repeat;
+  	background-size: 10vw;
+  }
   .p {
 	font-family: 'Comfortaa';
 	font-size: 1vw;
@@ -639,8 +659,9 @@
 	  margin-top: 5%;
   }
   .progress {
-  	height: 5%;
-  	margin-bottom: 5%;
+  	height: 9%;
+  	margin-bottom: 9%;
+  	border-radius: 0px;
   	color: #D33E1D;
   	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 
