@@ -79,7 +79,7 @@ app.get('/', checkAuthenticated, async (req, res) => {
 });
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname + '/views/login.html'));
+    res.render('login.ejs');
 });
 
 app.get('/register', (req, res) => {
