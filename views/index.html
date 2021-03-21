@@ -162,10 +162,12 @@
 		   		    			<div class="lurker deafultTxt">trophy 3<br> <i class="fa fa-shield" style = "font-size: 310%;"aria-hidden="true"></i></div>
 		   		    			<div class="lurker deafultTxt">trophy 4<br> <i class="fa fa-heart" style = "font-size: 310%;"aria-hidden="true"></i></div>
 		   		    		</div>
-		   		    		<div class="col">
-		   		    			<img src="./icons/pschg.png" style="position: relative; width: 14vw; top: 50%;">
+		   		    		<div class="col-2">
+		   		    			<div class = "deafultTxt" style="position: relative; height: 0.2vh; background: black; width: 60%; z-index: 951; filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25)); top: 10%;  left:  18%;">Personal Goal</div>
+		   		    			<img src="./icons/pschg.png" style="position: relative; width: 14vw; z-index: 1000; top: 50%;">
+		   		    			<div class = "deafultTxt"  style="position: relative; height: 30vh; background: gold; width: 50%; z-index: 950;filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25)); text-align: center; left:  23%;"> 76%</div>
 		   		    		</div>
-		   		    		<div class = "col-5">
+		   		    		<div class = "col">
 		   		    			<button style="height: 85%; width: 100%; text-align: left;" class="btn-danger tp" onclick="callJumpin();">view more achievements</button>
 		   		    		</div>
 		     		    </div>
@@ -671,6 +673,12 @@
   	filter: drop-shadow(4px 0px 4px rgba(0, 0, 0, 0.25));
 
   }
+  .progressVert{
+  		position: absolute;left:50.5%;top:40%;width: 2.5%;height:50%;opacity: 0.8; filter: alpha(opacity=80);
+  }
+  .progress-barVert{
+  		position:absolute;top:30%; width: 100%;height: 70%;
+  }
   .jumpIn {
   	position: absolute;
   	background-color: white;
@@ -681,9 +689,10 @@
   	display: none;
   	filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
   }
-  .col-sugest{ justify-content: center; background-color: white; border-radius: 20px; margin: 5%; } 
+  .col-sugest{text-align: center; background-color: white; border-radius: 20px; margin: 5%; height: 5vh; width: 5vw; } 
   
-  .txtSugest{ color: black; text-align: center; margin-top: 15%; }
+  .txtSugest{ color: black; text-align: center; margin-top: 1vw; font-family: 'Comfortaa';
+	font-size: 1vw;}
   .lurker {
   border-radius: 0px 10px 10px 0px;
   background: white;
