@@ -257,16 +257,10 @@
 	             
 	            <!-- Modal body -->
 	            <div class="modal-body">
-	             	<div style="overflow: auto;">
-	             		<img style = "width: 30%;"src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHw%3D&w=1000&q=80">
-	             		<img style = "width: 30%;"src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHw%3D&w=1000&q=80">
-	             		<img style = "width: 30%;"src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHw%3D&w=1000&q=80">
-	             		<img style = "width: 30%;"src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHw%3D&w=1000&q=80">
-	             		<img style = "width: 30%;"src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHw%3D&w=1000&q=80">
-	             	</div>
+					<form action="getFood" method="post">
+						<input type="text" class="form-control" id="foodString" placeholder="Availble ingredients" name="foodString">
+					</form>
 	             	<div class="deafultTxt">Your last meal was __ hours ago.</div>
-	             	
-	             	<button type="button" class="btn btn-danger">New suggestion</button>
 	             
 	            <!-- Modal footer -->
 	            <div class="modal-footer">
@@ -588,12 +582,13 @@
     .btn-success{
   	color: white;
   	background: #00B300;
-      min-height: 40%;
-      border-radius: 20px;
-      width: 25%;  
-      font-family: Comfortaa;
-      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    min-height: 40%;
+    border-radius: 20px;
+    width: 25%;  
+    font-family: Comfortaa;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   	border:none;
+	margin-left: 30%;
     }
 
   .bckgrd {
