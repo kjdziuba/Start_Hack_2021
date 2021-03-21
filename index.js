@@ -7,6 +7,8 @@ const session = require('express-session');
 const flash = require('express-flash');
 const bcrypt = require('bcrypt');
 
+const helsana = require('./helsana_db');
+
 const app = express();
 app.set('view-engine', 'ejs');
 
@@ -56,7 +58,7 @@ con.connect(function (err) {
     }
     else {
         console.log("Connection established.");
-        let sql = 'CREATE TABLE users (ID int, email varchar(255), username varchar(255), password varchar(255) );';
+        let sql = 'CREATE TABLE users (ID varchar(255), email varchar(255), username varchar(255), password varchar(255), kcal varchar(255), protein varchar(255), fat varchar(255), carbs varchar(255));';
         con.query(sql, function (err, result) {
             if (err) {
                 //console.log(err);
@@ -70,8 +72,10 @@ con.connect(function (err) {
 
 
 
-app.get('/', checkAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname + '/views/index.html'));
+app.get('/', checkAuthenticated, async (req, res) => {
+    var activities = await helsana.getActivitiesById(req.user.ID)
+    console.log(activities)
+    res.render('index.ejs', { kcal: req.user.kcal, fat: req.user.fat, protein: req.user.protein, carbs: req.user.carbs, ikcal: req.user.ikcal, ifat: req.user.ifat, iprotein: req.user.iprotein, icarbs: req.user.icarbs, ac1: activities[0], ac2: activities[1], ac3: activities[2], ac4: activities[3] });
 });
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
@@ -83,28 +87,29 @@ app.get('/register', (req, res) => {
 });
 
 
-app.post('/register',async (req,res) =>{
-    try{
+app.post('/register', async (req, res) => {
+    try {
         var data = req.body;
-        id = Date.now().toString()
+        id = await helsana.getRandomId()
         console.log(data)
         const hashedPassword = await bcrypt.hash(data.password, 10);
-        var sql = `INSERT INTO users (ID, email, username, password) VALUES (${id},'${data.email}', '${data.username}', '${hashedPassword}')`;
+        var sql = `INSERT INTO users (ID, email, username, password, kcal, protein, fat, carbs) VALUES ('${id}','${data.email}', '${data.username}', '${hashedPassword}', '0', '0', '0', '0')`;
         console.log(sql)
         con.query(sql, function (err, result) {
-            if(err){
-                if(err.code="ER_DUP_ENTRY"){
+            if (err) {
+                if (err.code = "ER_DUP_ENTRY") {
                     res.send("<script>alert('It looks like that email already exists! Please use a different email, or log in');window.location.replace(window.location.href);</script>");
-                }else{console.log(err);
+                } else {
+                    console.log(err);
                     res.send("<script>alert('An error occurred! Yell aggressively at the developers!');window.location.replace(window.location.href);</script>");
                 }
-                
-            }else{
+
+            } else {
                 console.log("1 record inserted");
                 res.redirect('/');
             }
         });
-    }catch{
+    } catch {
         res.redirect('/register');
     }
 });
@@ -116,46 +121,58 @@ app.post('/login', passport.authenticate('local', {
     failureFlash: true
 }))
 
-app.get('/getFood', (req, res)=>{
+app.get('/getFood', (req, res) => {
     res.render('food_example.ejs', { title: "nothing", image: "https://static.turbosquid.com/Preview/001204/841/NH/3D-minion-model_600.jpg" })
 })
 
 const food_func = require("./food-func")
-app.post('/getFood', async (req, res)=>{
+app.post('/getFood', async (req, res) => {
     data = req.body.foodString;
 
     food = await food_func(data)
 
-    if(food){
+    if (food) {
         res.render('food_example.ejs', { title: food.title, image: food.image });
-    }else{
+    } else {
         console.log("wrong")
     }
-    
-    
+
+
 })
 
 //food recognition
-app.get('/guessFood', (req, res)=>{
-    res.render('food_guess.ejs', {kcal: "0", fat:"0", protein: "0", carbs: "0"})
+app.get('/guessFood', (req, res) => {
+    res.render('index.ejs', { kcal: "0", fat: "0", protein: "0", carbs: "0" })
 })
 
 const guess_food = require("./nutrition_by_name")
-app.post('/guessFood', async (req, res)=>{
+app.post('/guessFood', async (req, res) => {
     data = req.body.foodString;
     console.log(data)
 
     food = await guess_food(data)
 
+    req.user.ikcal = food.kcal;
+    req.user.ifat = food.fat;
+    req.user.iprotein = food.protein;
+    req.user.icarbs = food.carbs;
+
+    req.user.kcal += food.kcal;
+    req.user.fat += food.fat;
+    req.user.protein += food.protein;
+    req.user.carbs += food.carbs;
+
     console.log(food)
 
-    if(food){
-        res.render('food_guess.ejs', {kcal: food.kcal, fat:food.fat, protein: food.protein, carbs: food.carbs});
-    }else{
+    if (food) {
+        var activities = await helsana.getActivitiesById(req.user.ID)
+        console.log(activities)
+        res.render('index.ejs', { kcal: req.user.kcal, fat: req.user.fat, protein: req.user.protein, carbs: req.user.carbs, ikcal: req.user.ikcal, ifat: req.user.ifat, iprotein: req.user.iprotein, icarbs: req.user.icarbs, ac1: activities[0], ac2: activities[1], ac3: activities[2], ac4: activities[3] });
+    } else {
         console.log("wrong")
     }
-    
-    
+
+
 })
 
 app.get('/getUsers', (req, res) => {
@@ -166,8 +183,23 @@ app.get('/getUsers', (req, res) => {
             console.log(err);
             console.log("error")
         }
-        else { 
-            console.log(result); 
+        else {
+            console.log(result);
+        }
+    });
+})
+
+//drop db
+app.get('/dropDB', (req, res) => {
+    var sql = `drop table users`;
+    console.log(sql);
+    con.query(sql, function (err, result) {
+        if (err) {
+            console.log(err);
+            console.log("error")
+        }
+        else {
+            console.log(result);
         }
     });
 })

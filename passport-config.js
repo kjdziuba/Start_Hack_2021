@@ -1,6 +1,7 @@
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')
 const mysql = require('mysql');
+const helsana = require('./helsana_db')
 
 var con = mysql.createConnection({
   host: "***REMOVED***",
@@ -65,6 +66,15 @@ function initialize(passport) {
         else if(result.length != 0){ 
           console.log(result[0]);
           user = result[0];
+          user.ikcal = 0;
+          user.ifat = 0;
+          user.iprotein = 0;
+          user.iprotein = 0;
+          user.activities = []
+          user.kcal = parseInt(user.kcal);
+          user.fat = parseInt(user.fat);
+          user.protein = parseInt(user.protein);
+          user.carbs = parseInt(user.carbs);
           done(null, user);
       }
         
